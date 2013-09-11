@@ -1,11 +1,17 @@
-debathena-authwatch (10.0.0-0debathena5) UNRELEASED; urgency=low
+debathena-authwatch (10.0.1-0debathena1) unstable; urgency=low
 
+  [ Jonathan Reed ]
   * Bump debian/compat to 6
   * Switch from control.in to control (Trac: #561)
   * Bump Standards-Version to 3.9.3
   * Bump compat level to 7
 
- -- Jonathan Reed <jdreed@mit.edu>  Wed, 03 Apr 2013 13:59:32 -0400
+  [ Victor Vasiliev ]
+  * Add git-buildpackage configuration
+  * Use debhelper7
+  * Fix build system
+
+ -- Victor Vasiliev <vasilvv@mit.edu>  Wed, 11 Sep 2013 10:48:14 -0400
 
 debathena-authwatch (10.0.0-0debathena4) unstable; urgency=low
 
