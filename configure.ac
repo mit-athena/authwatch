@@ -1,21 +1,31 @@
-dnl Process this file with autoconf to produce a configure script.
-dnl $Id: configure.in,v 1.1 2002-01-23 22:15:29 mwhitson Exp $
+#                                               -*- Autoconf -*-
+# Process this file with autoconf to produce a configure script.
 
-AC_INIT([authwatch], [10.0], [debathena@mit.edu])
+AC_PREREQ([2.65])
+AC_INIT([authwatch], [10.1], [debathena@mit.edu])
+AM_INIT_AUTOMAKE([foreign -Wall])
+AM_MAINTAINER_MODE([enable])
+m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
+AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_SRCDIR([authwatch.c])
+AC_CONFIG_HEADERS([config.h])
 
+# Checks for programs.
 AC_PROG_CC
 AC_PROG_INSTALL
 AC_PROG_MKDIR_P
+AM_PROG_CC_C_O
 
-ATHENA_KRB5_REQUIRED
-ATHENA_KRB5
-ATHENA_UTIL_COM_ERR
+# Check for libraries.
+RRA_LIB_KRB5
 
-dnl "gnome-config --libs" returns -lintl before -lgnome, which will
-dnl fail if libintl is static.  This hack gets an extra -lintl at the
-dnl end of the link line.
 AC_CHECK_LIB(intl, gettext)
+PKG_CHECK_MODULES([GTK], [gtk+-2.0])
+AC_SUBST([GTK_CFLAGS])
+AC_SUBST([GTK_LIBS])
+
+# Checks for library functions.
+AC_CHECK_FUNCS([memset])
 
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
