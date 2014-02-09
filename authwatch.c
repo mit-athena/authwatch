@@ -19,6 +19,7 @@
 
 static const char rcsid[] = "$Id: authwatch.c,v 1.7 2005-08-01 15:56:13 rbasch Exp $";
 
+#include <string.h>
 #include <stdio.h>
 #include <sys/types.h>
 
